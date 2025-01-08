@@ -1,0 +1,66 @@
+/* Grundlegendes Styling alle Seiten*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --base-bg-color: #FFFFFF;
+    --base-color: #666666;
+    --headline-color: #0F0100;
+
+    --primary-color: #0F0100;
+    --primary-rgb: 15, 1, 0;
+    --primary-alpha: 1;
+
+    --accent-color: #3B6C9B;
+    --focus-outline-color: #8AB1CC;
+
+    --secondary-color: #F5F5F5;
+
+    /* Schriften */
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    /* Schriftrößen */
+    --font-size-base: 18px; /* Standardgröße für Fließtext */
+    --font-size-h1: 39.6px; /* Maximalgröße H1 */
+    --font-size-h2: 30.6px; /* Maximalgröße H2 */
+    --font-size-h3: 30.6px;
+    --font-size-h4: 27px;
+    --font-size-h5: 23.4px;
+    --font-size-h6: 18px;
+
+    /* Dynamische Größen für H1,H2 u big title */
+    --font-size-h1-fluid: clamp(40px, 5vw, 70px);
+    --font-size-h2-fluid: clamp(30px, 4vw, 50px);
+    --font-size-big-title: clamp(40px, 6vw, 100px);
+
+    /* Schriftstärken */
+    --font-weight-regular: 400; /* Normal */
+    --font-weight-bold: 700; /* Fett (bold) */
+
+    --container-max-width: 1920px; /*hier 1920 oder 1350px wegen dem Layout -herausfinden*/
+}
+
+body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-base);
+    line-height: 1.2;
+    color: var(--base-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--base-bg-color);
+}
+
+header {
+    background-color: var(--accent-color);
+}
+
