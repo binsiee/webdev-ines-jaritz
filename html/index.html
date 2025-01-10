@@ -7,14 +7,15 @@
     <meta name="description" content="Interior Design - Exklusives Möbeldesign">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Startseite.css">
     <link rel="stylesheet" href="./fonts/icons/style.css">
 </head>
 <body>
 
 <header>
-    <nav>
-        <img src="./img/logo-interior.svg" alt="logo rooms">
-        <ul class="main-nav">
+    <nav class="container">
+        <img src="./img/logo-interior.svg" alt="logo rooms" class="logo">
+        <ul class="navigation">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Referenzen</a></li>
@@ -23,28 +24,40 @@
     </nav>
 </header>
 
+<!-- Beginn Startseite -->
+
 <main>
     <section class="hero">
-        <h1>Interior Design Studio</h1>
-        <p>Entdecken Sie zeitlose Eleganz bei Interior - Ihr Studio für exklusives Möbeldesign </p>
-        <button>
-            <a href="#">Jetzt kontaktieren</a>
-        </button>
+        <div class="container">
+        <h1 class="umbruch">Interior Design Studio</h1>
+        <p class="special-font">Entdecken Sie zeitlose Eleganz bei Interior - Ihr Studio für <br> exklusives Möbeldesign </p>
+        <button href="#" class="herobutton">Jetzt kontaktieren </button>
+        </div>
     </section>
 
-    <section class="beta-sections">
-        <div>
-        <h2>Hochwertige Wohnlösungen für ihr zuhause</h2>
-        <p>Bei Interior verstehen wir, dass jedes Zuhause einzigartig ist. Deshalb bieten wir maßgeschneiderte Möbeldesignlösungen, die genau auf Ihre Bedürfnisse und Ihren persönlichen Stil zugeschnitten sind.</p>
-        </div>
+    <section class="secondary-section">
 
-        <div>
+            <div class="text">
+        <h2>Hochwertige Wohnlösungen für ihr zuhause</h2>
+        <p>Bei Interior verstehen wir, dass jedes Zuhause einzigartig ist.
+            Deshalb bieten wir maßgeschneiderte Möbeldesignlösungen,
+            die genau auf Ihre Bedürfnisse und
+            Ihren persönlichen Stil zugeschnitten sind.</p>
+            </div>
+
+            <div class="image">
+            <img src="img/roberto-nickson-tleCJiDOri0-unsplash.jpg" alt="Esszimmer mit Meerblick"
+            </div>
+
+    </section>
+
+    <section>
+            <img src="img/r-architecture-TRCJ-87Yoh0-unsplash.jpg" alt="Luxuriöse Küche">
             <h2>Nachhaltigkeit und Qualität im Fokus</h2>
             <p>Bei Interior verstehen wir, dass jedes Zuhause einzigartig ist. Deshalb bieten wir maßgeschneiderte Möbeldesignlösungen, die genau auf Ihre Bedürfnisse und Ihren persönlichen Stil zugeschnitten sind.</p>
             <button>
                 <a href="#">Jetzt kontaktieren</a>
             </button>
-        </div>
     </section>
 
     <section class>
@@ -92,14 +105,14 @@
     <img src="./img/logo-interior.svg" alt="logo rooms">
 
     <p>Sitemap</p>
-    <ul class="footer-nav">
+    <ul>
         <li><a href="#">Datenschutz</a></li>
         <li><a href="#">Impressum</a></li>
         <li><a href="#">AGB</a></li>
     </ul>
 
     <p>Legal</p>
-    <ul class="footer-nav">
+    <ul class>
         <li><a href="#">Datenschutz</a></li>
         <li><a href="#">Impressum</a></li>
         <li><a href="#">AGB</a></li>

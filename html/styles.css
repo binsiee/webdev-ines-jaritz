@@ -6,11 +6,6 @@
     padding: 0;
 }
 
-html,body {
-    margin: 0;
-    padding: 0;
-}
-
 :root {
     --base-bg-color: #FFFFFF;
     --base-color: #666666;
@@ -30,7 +25,7 @@ html,body {
     --font-secondary: 'Open Sans', sans-serif;
 
     /* Schriftrößen */
-    --font-size-base: 18px; /* Standardgröße für Fließtext */
+    --font-size-base: 18px; /* Standardgröße Fließtext */
     --font-size-h1: 39.6px; /* Maximalgröße H1 */
     --font-size-h2: 30.6px; /* Maximalgröße H2 */
     --font-size-h3: 30.6px;
@@ -44,10 +39,10 @@ html,body {
     --font-size-big-title: clamp(40px, 6vw, 100px);
 
     /* Schriftstärken */
-    --font-weight-regular: 400; /* Normal */
-    --font-weight-bold: 700; /* Fett (bold) */
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
 
-    --container-max-width: 1920px; /*hier 1920 oder 1350px wegen dem Layout -herausfinden*/
+    --container-max-width: 1350px;
 }
 
 body {
@@ -55,12 +50,124 @@ body {
     font-size: var(--font-size-base);
     line-height: 1.2;
     color: var(--base-color);
-    margin: 0;
-    padding: 0;
     background-color: var(--base-bg-color);
 }
 
 header {
     background-color: var(--accent-color);
+    width: 100%; /*damits auch auf großen Bildschirmen über volle Breite geht*/
+    height: 90px;
 }
 
+button {
+    font-family: var(--font-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 28px;
+    border: 1px solid;
+
+}
+
+h1{font-size: var(--font-size-h1-fluid);
+    font-family: var(--font-primary);
+    text-transform: uppercase}
+
+h2{font-size: var(--font-size-h2-fluid);
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+    text-transform: uppercase}
+
+p{font-size: var(--font-size-base);
+font-family: var(--font-secondary);
+color: var(--base-color)}
+
+.special-font{font-family: var(--font-primary);
+color: var(--font-secondary)}
+
+nav.container {
+    display: flex; /* Flexbox innerhalb des Containers */
+    justify-content: space-between; /* Abstand zwischen Logo und Navigation */
+    align-items: center; /* Vertikale Zentrierung */
+    max-width: var(--container-max-width);
+    margin: 0 auto; /* Zentriert Container horizontal */
+    height: 100%; /* Passt sich Header-Höhe an */
+}
+
+.logo{
+    max-width: 108.43px;
+    height: auto;
+    padding-left: 20px;}
+
+.navigation {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding-right: 20px;
+}
+
+.navigation a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+}
+
+/*Startseite Layout*/
+
+/*Hero*/
+
+.hero {
+    background-image: url("img/jason-wang-NxAwryAbtIw-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: 100vh;
+    color:var(--base-bg-color);
+    position: relative;
+    display: flex; /* Flexbox aktivieren */
+    align-items: center; /* vertikal zentrieren */
+}
+
+.hero .container {
+    max-width: var(--container-max-width);
+    width: 100%; /* Container nimmt die volle verfügbare Breite ein */
+    margin: 0 auto; /* Zentriert Container horizontal */
+    padding: 20px 0px;
+}
+
+/*alle Children v hero container sollen unterhalb 30px haben*/
+.hero .container > * {margin-bottom: 30px;}
+/*letztes child nicht*/
+.hero > *:last-child {
+    margin-bottom: 0; /* Kein Abstand beim letzten Kind */
+}
+
+.umbruch{max-width: 782px}
+
+.herobutton {
+    background-color: transparent;
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+/* zweite u dritte Section unter hero = secondary*/
+
+.secondary-section{
+    max-width: var(--container-max-width);
+    width: 100%;
+    margin: 125px auto 106px;
+    display: flex;
+}
+
+.secondary-section .text{
+    flex: 1;
+    padding: 0 20px; /* Abstand innerhalb Textblock */
+    display: flex;
+    flex-direction: column;
+    justify-content: top; /* Vertikale Zentrierung Text */}
+
+.text >*:first-child{margin-bottom: 25px}
+
+.secondary-section .image{flex: 1}
+
+.secondary-section img{width: 100%;height: auto;display: block}
