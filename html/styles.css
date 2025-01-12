@@ -8,6 +8,7 @@
 
 :root {
     --base-bg-color: #FFFFFF;
+    --base-bg-color-rgb: 255, 255, 255;
     --base-color: #666666;
     --headline-color: #0F0100;
 
@@ -80,6 +81,32 @@ p{font-size: var(--font-size-base);
 font-family: var(--font-secondary);
 color: var(--base-color)}
 
+.image-overlay {
+    position: relative;
+    display: inline-block; /* Flexibler Bild-Wrapper */
+    width: 100%; /* Anpassung Elternbreite */
+    overflow: hidden;
+}
+
+.image-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Schwarzes Overlay mit 40% Trans */
+    z-index: 1;
+    mix-blend-mode: hard-light; /* Overlay-Effekt lt XD */
+    pointer-events: none; /* Overlay blockiert keine Klicks */
+}
+
+.image-overlay img {
+    display: block;
+    width: 100%;
+    height: auto; /* Skaliert  Bild proportional */
+}
+
 .special-font{font-family: var(--font-primary);
 color: var(--font-secondary)}
 
@@ -127,17 +154,18 @@ nav.container {
     align-items: center; /* vertikal zentrieren */
 }
 
-.hero .container {
+.hero .above-level {
     max-width: var(--container-max-width);
     width: 100%; /* Container nimmt die volle verfügbare Breite ein */
     margin: 0 auto; /* Zentriert Container horizontal */
-    padding: 20px 0px;
+    padding-left: 20px;
+    z-index: 2;
 }
 
 /*alle Children v hero container sollen unterhalb 30px haben*/
-.hero .container > * {margin-bottom: 30px;}
+.hero .above-level > * {margin-bottom: 30px;}
 /*letztes child nicht*/
-.hero .container > *:last-child {
+.hero .above-level > *:last-child {
     margin-bottom: 0; /* Kein Abstand beim letzten Kind */
 }
 
@@ -161,7 +189,6 @@ padding-bottom: 106px;}
     display: flex;
     justify-items: center;
     align-items: top;
-    gap:30px;
 }
 
 .secondary-section .text-one{
@@ -173,13 +200,22 @@ padding-bottom: 106px;}
 
 .text-one >*:first-child{margin-bottom: 25px}
 
-.secondary-section .image-one{flex: 1;padding-left:20px}
+.secondary-section .image-one{position: relative;
+    flex: 1;padding: 0 20px}
 
 .secondary-section img{
-    width: 100%; height: auto;
-    object-fit: cover; overflow: hidden;}
+    width: 100%; height: auto;}
 
 .secondary-section-two-bg-color {background-color: var(--secondary-color);}
+
+.secondary-section .image-two{padding: 0 20px;}
+
+.secondary-section .text-two{
+    flex: 1;
+    padding-right: 20px; /* Abstand innerhalb Textblock */
+    display: flex;
+    flex-direction: column;
+    justify-content: top; /* Vertikale Zentrierung Text */}
 
 .secondary-button {
     background-color: var(--accent-color);
@@ -188,19 +224,9 @@ padding-bottom: 106px;}
     display: inline-block;
     align-self: flex-start;
     margin-top: 25px;
-    margin-left: 20px;
 }
 
-.secondary-section .text-two{
-    flex: 1;
-    padding: 0 20px; /* Abstand innerhalb Textblock */
-    display: flex;
-    flex-direction: column;
-    justify-content: top; /* Vertikale Zentrierung Text */}
-
 .text-two >*:first-child {margin-bottom: 25px}
-
-.image-two{max-width: 100%}
 
 /* 3 Bulletpoints */
 
@@ -211,12 +237,108 @@ padding-bottom: 106px;}
 max-width: var(--container-max-width);
 width: 100%;
 margin: 0 auto;
-    padding-top: 125px;
-    padding-bottom: 106px;}
+    padding: 125px 20px 106px;}
 
 .bulletpoints-width{max-width: 427px;
 flex: 1; padding-right: 20px}
 
 .bulletpoints-header{display: flex;
     gap: 15px;margin-bottom: 22px;}
+
+/*Parallax-Sektion*/
+
+.parallax-background {
+    background-image: url("img/nastuh-abootalebi-eHD8Y1Znfpk-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 30px 20px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Vermeidet Überlappung */
+}
+
+.parallax-outer-box{
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Links ausrichten inner-box */
+}
+
+.parallax-inner-box {max-height: 570px;
+    background-color: rgba(var(--base-bg-color-rgb), 0.9);
+    padding:52px 32px;
+    z-index: 2;
+    position: relative;}
+
+.parallax-content{max-width: 510px;}
+
+.parallax-content h2 {
+    margin-bottom: 18px;
+}
+
+.parallax-content ul {
+    margin-bottom: 0;
+}
+
+.parallax-content ul > li {
+    margin-bottom: 18px;
+}
+
+.parallax-content ul > li:last-child {
+    margin-bottom: 0;
+}
+
+/*Kundenstimme*/
+
+.feedback{
+    max-width: 654px;
+width: 100%;
+margin: 0 auto;
+    text-align: center;
+}
+
+.feedback-headline{text-transform: uppercase;margin-bottom:
+        40px;font-family: var(--font-primary);color: #2F2F2A;}
+
+.feedback-quote{margin-bottom: 15px;}
+
+.feedback-name{font-weight: bold;}
+
+/*Footer*/
+
+.footer-background{background-color: var(--primary-color);padding: 80px;}
+
+.footer-section{max-width: var(--container-max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+display: grid;
+    grid-template-columns: 1fr 1fr;}
+
+.footer-logo{max-width: 328px;
+    height: auto;}
+
+.footer-links{display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:30px;}
+
+.footer-links p{color: var(--focus-outline-color);
+    text-transform:
+        uppercase;
+    margin-bottom: 20px;
+    font-family: var(--font-primary);}
+
+.footer-links ul{list-style: none;}
+
+.footer-links ul a{text-decoration: none;
+    color: var(--base-bg-color);font-family: var(--font-primary);}
+
+.footer-links ul li{margin-bottom: 5px;}
+
+
+
 
