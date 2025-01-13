@@ -137,7 +137,7 @@ nav.container {
     color: var(--secondary-color);
 }
 
-/*Startseite Layout*/
+/*Template Layout*/
 
 /*Hero*/
 
@@ -177,120 +177,9 @@ nav.container {
     color: var(--secondary-color);
 }
 
-/* zweite u dritte Section unter hero = secondary*/
+/*Schriften*/
 
-.secondary-section-margin{padding-top: 125px;
-padding-bottom: 106px;}
 
-.secondary-section{
-    max-width: var(--container-max-width);
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-items: center;
-    align-items: top;
-}
-
-.secondary-section .text-one{
-    flex: 1;
-    padding: 0 20px; /* Abstand innerhalb Textblock */
-    display: flex;
-    flex-direction: column;
-    justify-content: top; /* Vertikale Zentrierung Text */}
-
-.text-one >*:first-child{margin-bottom: 25px}
-
-.secondary-section .image-one{position: relative;
-    flex: 1;padding: 0 20px}
-
-.secondary-section img{
-    width: 100%; height: auto;}
-
-.secondary-section-two-bg-color {background-color: var(--secondary-color);}
-
-.secondary-section .image-two{padding: 0 20px;}
-
-.secondary-section .text-two{
-    flex: 1;
-    padding-right: 20px; /* Abstand innerhalb Textblock */
-    display: flex;
-    flex-direction: column;
-    justify-content: top; /* Vertikale Zentrierung Text */}
-
-.secondary-button {
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
-    border: none;
-    display: inline-block;
-    align-self: flex-start;
-    margin-top: 25px;
-}
-
-.text-two >*:first-child {margin-bottom: 25px}
-
-/* 3 Bulletpoints */
-
-.bulletpoints{
-    display: flex;
-    justify-content: space-between ;
-    align-items: top;
-max-width: var(--container-max-width);
-width: 100%;
-margin: 0 auto;
-    padding: 125px 20px 106px;}
-
-.bulletpoints-width{max-width: 427px;
-flex: 1; padding-right: 20px}
-
-.bulletpoints-header{display: flex;
-    gap: 15px;margin-bottom: 22px;}
-
-/*Parallax-Sektion*/
-
-.parallax-background {
-    background-image: url("img/nastuh-abootalebi-eHD8Y1Znfpk-unsplash.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 30px 20px;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto; /* Vermeidet Überlappung */
-}
-
-.parallax-outer-box{
-    max-width: var(--container-max-width);
-    margin: 0 auto;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start; /* Links ausrichten inner-box */
-}
-
-.parallax-inner-box {max-height: 570px;
-    background-color: rgba(var(--base-bg-color-rgb), 0.9);
-    padding:52px 32px;
-    z-index: 2;
-    position: relative;}
-
-.parallax-content{max-width: 510px;}
-
-.parallax-content h2 {
-    margin-bottom: 18px;
-}
-
-.parallax-content ul {
-    margin-bottom: 0;
-}
-
-.parallax-content ul > li {
-    margin-bottom: 18px;
-}
-
-.parallax-content ul > li:last-child {
-    margin-bottom: 0;
-}
 
 /*Kundenstimme*/
 
