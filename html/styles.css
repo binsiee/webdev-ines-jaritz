@@ -339,6 +339,12 @@ display: grid;
 
 .footer-links ul li{margin-bottom: 5px;}
 
+.icon-arrow-4{
+    color: var(--base-bg-color);display: inline-block;
+    transform: scaleX(-1); margin-right: 5px;
+}
+
+.format{display: flex; align-items: center;}
 
 
 
