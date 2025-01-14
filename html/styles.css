@@ -54,10 +54,16 @@ body {
     background-color: var(--base-bg-color);
 }
 
+main{margin-top: 90px}
+
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: var(--accent-color);
     width: 100%; /*damits auch auf großen Bildschirmen über volle Breite geht*/
     height: 90px;
+    z-index: 1200;
 }
 
 button {
@@ -148,7 +154,8 @@ color: var(--base-color);}
 }
 
 #special-font{font-family: var(--font-primary);
-color: var(--font-secondary)}
+color: var(--font-secondary);
+max-width: 786px;}
 
 nav.container {
     display: flex; /* Flexbox innerhalb des Containers */
@@ -199,6 +206,7 @@ nav.container {
     width: 100%; /* Container nimmt die volle verfügbare Breite ein */
     margin: 0 auto; /* Zentriert Container horizontal */
     padding-left: 20px;
+    padding-right: 20px;
     z-index: 2;
 }
 
@@ -209,13 +217,31 @@ nav.container {
     margin-bottom: 0; /* Kein Abstand beim letzten Kind */
 }
 
-#umbruch{max-width: 782px; color: var(--base-bg-color);}
+.umbruch{max-width: 782px; color: var(--base-bg-color);}
 
 .herobutton {
     background-color: transparent;
     border-color: var(--secondary-color);
     color: var(--secondary-color);
 }
+
+.herobutton:hover {
+    border-color: var(--accent-color); /* Rahmenfarbe ändern */
+    color: var(--accent-color);       /* Schriftfarbe ändern */
+    cursor: pointer;                         /* Zeigt an, dass es klickbar ist */
+}
+
+.herobutton:active{
+    background-color: var(--focus-outline-color);
+    color: var(--primary-color);
+    outline: none;
+    border: none;}
+
+.herobutton:focus{
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-color: var(--focus-outline-color);}
+
 
 /*Schriften-Sektion*/
 /*Big Title*/
@@ -501,5 +527,86 @@ padding-right: 40px}
 @media (min-width: 1024px) {
     .image-text {
         display: none;
+    }
+}
+
+/*Mobile Navigation/Burgerbutton*/
+
+/* Burger-Button */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    margin-right: 20px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1100;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.menu-toggle-checkbox {
+    display: none;
+}
+
+/* X-Button (sichtbar bei geöffnetem mobilem Menü) */
+.menu-close {
+    display: none; /* Standardmäßig ausgeblendet */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+    z-index: 1100;
+}
+
+/* Sichtbarkeit von Buttons steuern */
+.menu-toggle-checkbox:checked ~ .menu-toggle {
+    display: none; /* Burger-Button ausblenden */
+}
+
+.menu-toggle-checkbox:checked ~ .menu-close {
+    display: block; /* X-Button anzeigen */
+}
+
+@media (max-width: 768px) {
+    .navigation {
+        flex-direction: column;
+        gap: 1rem;
+        position: fixed; /* Überlagert gesamten Viewport */
+        top: 90px; /* Unter dem fixierten Header */
+        left: 0;
+        padding-left: 20px;
+        width: 100%;
+        height: calc(100% - 60px); /* Rest des Bildschirms */
+        background: var(--accent-color);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        z-index: 1000;
+    }
+
+    .menu-toggle-checkbox:checked ~ .navigation {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Burger-Button und X ausblenden in der Desktop-Ansicht */
+@media (min-width: 769px) {
+    .menu-toggle,
+    .menu-close {
+        display: none; /* Beide Buttons ausblenden */
     }
 }

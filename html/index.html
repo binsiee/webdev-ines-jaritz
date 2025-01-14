@@ -15,10 +15,33 @@
 <header>
     <nav class="container">
         <img src="./img/logo-interior.svg" alt="logo rooms" class="logo">
+        <!-- Versteckte Checkbox -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+
+        <!-- Label für Burger-Button (geschlossen) -->
+        <label for="menu-toggle" class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Label für X-Button (offen) -->
+        <label for="menu-toggle" class="menu-close">
+            ✕
+        </label>
+
         <ul class="navigation">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Referenzen</a></li>
+            <li><a href="#">Referenzen</a>
+                <!--
+                <ul>
+                    <li><a href="#">Wohnzimmer</a></li>
+                    <li><a href="#">Schlafzimmer</a></li>
+                    <li><a href="#">Küche</a></li>
+                </ul>
+                -->
+            </li>
             <li><a href="#">Kontakt</a></li>
         </ul>
     </nav>
@@ -29,7 +52,7 @@
 <main>
     <section class="hero image-overlay">
         <div class="above-level">
-        <h1 id="umbruch">Interior Design Studio</h1>
+        <h1 class="umbruch">Interior Design Studio</h1>
         <p id="special-font">Entdecken Sie zeitlose Eleganz bei Interior - Ihr Studio für <br> exklusives Möbeldesign </p>
         <button href="#" class="herobutton">Jetzt kontaktieren </button>
         </div>
@@ -184,6 +207,7 @@
     </div>
 
 </footer>
+
 
 
 </body>
