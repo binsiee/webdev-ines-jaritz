@@ -116,11 +116,14 @@ p{font-size: var(--font-size-base);
 font-family: var(--font-secondary);
 color: var(--base-color);}
 
+
 .image-overlay {
     position: relative;
-    display: inline-block; /* Flexibler Bild-Wrapper */
+    display: block; /* Flexibler Bild-Wrapper */
     width: 100%; /* Anpassung Elternbreite */
+    height: auto;
     overflow: hidden;
+    aspect-ratio: 1/1;
 }
 
 .image-overlay::before {
@@ -141,9 +144,10 @@ color: var(--base-color);}
     width: 100%;
     height: auto; /* Skaliert  Bild proportional */
     z-index: 0;
+    object-fit: cover;
 }
 
-.special-font{font-family: var(--font-primary);
+#special-font{font-family: var(--font-primary);
 color: var(--font-secondary)}
 
 nav.container {
@@ -205,7 +209,7 @@ nav.container {
     margin-bottom: 0; /* Kein Abstand beim letzten Kind */
 }
 
-.umbruch{max-width: 782px; color: var(--base-bg-color);}
+#umbruch{max-width: 782px; color: var(--base-bg-color);}
 
 .herobutton {
     background-color: transparent;
@@ -233,6 +237,8 @@ nav.container {
     padding: 0 20px;
     height: 100%;
     position: relative;
+    display: flex;
+    align-items: flex-end;
 }
 
 .big-title{
@@ -241,11 +247,21 @@ nav.container {
     font-family: var(--font-primary);
     text-transform: uppercase;
     font-weight: bold;
-    position: absolute;
-    bottom: -20px;
-    transform: translateY(-5%);
+    position: relative;
     margin: 0;
+    z-index: 1;
     line-height: 1;
+}
+
+.big-title::before {
+    content: ""; /* Erzeugt ein leeres Pseudo-Element */
+    position: absolute;
+    bottom: 0; /* Startet unten */
+    left: 0;
+    right: 0;
+    height: 10px; /* Definiert, wie viel vom Titel abgeschnitten werden soll */
+    background: var(--accent-color); /
+    z-index: 2;
 }
 
 /*Headlines*/
@@ -296,6 +312,7 @@ nav.container {
     max-width: 446px;
     max-height: 446px;
 }
+
 
 .gallery-nav{
 max-width: var(--container-max-width);
@@ -442,4 +459,47 @@ padding-right: 40px}
 }
 
 
+/* Gallery Grid Section responsiv machen*/
 
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 20px;
+    }
+
+    .gallery-item {
+        max-width: 100%;
+        margin: 0 auto;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+    .image-overlay {
+        aspect-ratio: 1 / 1;
+    overflow: hidden;}
+}
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+    /* Positionierung der Text-Box */
+    .image-text {
+        position: absolute;
+        bottom: 17px;
+        left: 17px;
+        z-index: 2;
+        color: var(--base-bg-color);
+        font-family: var(--font-primary);
+        font-weight: bold;
+        font-size: 30px; /* Schriftgröße */
+        text-transform: uppercase; /* Großbuchstaben */
+    }
+
+@media (min-width: 1024px) {
+    .image-text {
+        display: none;
+    }
+}
