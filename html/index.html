@@ -14,7 +14,7 @@
 
 <header>
     <nav class="container">
-        <img src="./img/logo-interior.svg" alt="logo rooms" class="logo">
+        <img src="./img/logo-interior.svg" alt="logo rooms" id="header-logo">
         <!-- Versteckte Checkbox -->
         <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
 
@@ -29,21 +29,33 @@
         <label for="menu-toggle" class="menu-close">
             ✕
         </label>
-
+        <div class="mobile-menu-wrapper">
         <ul class="navigation">
-            <li><a href="#">Home</a></li>
+            <li><a class="bold" href="#">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Referenzen</a>
-                <!--
-                <ul>
+            <li class="dropdown">
+
+                <!-- Checkbox für das Dropdown -->
+                <input type="checkbox" id="toggle-referenzen"
+                       class="dropdown-toggle">
+
+                <label for="toggle-referenzen" class="dropdown-label">
+                    Referenzen
+                    <span class="icon-Icon"></span>
+                </label>
+
+                <ul class="dropdown-menu">
+                    <!-- Checkbox als Toggle -->
+
                     <li><a href="#">Wohnzimmer</a></li>
                     <li><a href="#">Schlafzimmer</a></li>
                     <li><a href="#">Küche</a></li>
                 </ul>
-                -->
+
             </li>
             <li><a href="#">Kontakt</a></li>
         </ul>
+        </div>
     </nav>
 </header>
 
@@ -53,21 +65,21 @@
     <section class="hero image-overlay">
         <div class="above-level">
         <h1 class="umbruch">Interior Design Studio</h1>
-        <p id="special-font">Entdecken Sie zeitlose Eleganz bei Interior - Ihr Studio für <br> exklusives Möbeldesign </p>
+        <p id="special-font-subheader">Entdecken Sie zeitlose Eleganz bei Interior - Ihr Studio für <br> exklusives Möbeldesign </p>
         <button href="#" class="herobutton">Jetzt kontaktieren </button>
         </div>
     </section>
 
     <!--Schriften-Sektion-->
 
-    <section class="big-title-section">
-        <section class="big-title-inner-section">
+    <div class="big-title-section">
+        <div class="big-title-inner-section">
         <p class="big-title">
             Big Title</p>
-        </section>
-    </section>
+        </div>
+    </div>
 
-    <section class="fonts">
+    <div id="fonts">
 
         <section class="headlines">
 
@@ -85,7 +97,7 @@
 
         </section>
 
-        <section>
+        <div>
 
         <p> Absatz Überall <span class="bold">dieselbe alte
             Leier.</span>
@@ -102,16 +114,16 @@
             wenn Sie ein paar Zeilen lesen. Denn esse
             est percipi - Sein ist wahrgenommen werden.</p>
 
-        <button class="accent-button"> Button </button>
+            <a href="#" class="accent-button">Button</a>
 
-        </section>
+        </div>
 
-    </section>
+    </div>
 
 
     <!--6 Bilder-->
 
-    <section class="gallery-section">
+    <section id="gallery-section">
         <div class="gallery-grid ">
 
             <div class="image-overlay">
@@ -159,19 +171,19 @@
         </nav>
     </section>
 
-    <section class="feedback section-margin">
-        <p class="feedback-headline">Kundenstimme</p>
+    <section id="feedback" class="section-margin">
+        <p id="feedback-headline">Kundenstimme</p>
         <blockquote>
-            <p class="feedback-quote">„Bei Interior verstehen wir, dass jedes Zuhause einzigartig ist. Deshalb bieten wir maßgeschneiderte Möbeldesignlösungen.“</p>
-            <cite class="feedback-name">Marta</cite>
+            <p id="feedback-quote">„Bei Interior verstehen wir, dass jedes Zuhause einzigartig ist. Deshalb bieten wir maßgeschneiderte Möbeldesignlösungen.“</p>
+            <cite id="feedback-name">Marta</cite>
         </blockquote>
     </section>
 
 </main>
 
-<footer class="footer-background">
+<footer id="footer-background">
 
-    <div class="footer-section">
+    <div id="footer-section">
 <div class="footer-logo">
     <img src="./img/logo-interior.svg" alt="logo rooms">
 </div>

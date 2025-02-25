@@ -2,8 +2,6 @@
 
 *, *::before, *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 :root {
@@ -52,6 +50,8 @@ body {
     line-height: 1.2;
     color: var(--base-color);
     background-color: var(--base-bg-color);
+    margin: 0;
+    padding: 0;
 }
 
 main{margin-top: 90px}
@@ -63,7 +63,8 @@ header {
     background-color: var(--accent-color);
     width: 100%; /*damits auch auf großen Bildschirmen über volle Breite geht*/
     height: 90px;
-    z-index: 1200;
+    z-index: 3000;
+    box-shadow: 0px 10px 10px -5px var(--primary-color); /* Schlagschatten */
 }
 
 button {
@@ -153,7 +154,7 @@ color: var(--base-color);}
     object-fit: cover;
 }
 
-#special-font{font-family: var(--font-primary);
+#special-font-subheader{font-family: var(--font-primary);
 color: var(--font-secondary);
 max-width: 786px;}
 
@@ -164,25 +165,65 @@ nav.container {
     max-width: var(--container-max-width);
     margin: 0 auto; /* Zentriert Container horizontal */
     height: 100%; /* Passt sich Header-Höhe an */
+    position: relative;
+    z-index: 2000;
 }
 
-.logo{
+#header-logo{
     max-width: 108.43px;
     height: auto;
     padding-left: 20px;}
 
-.navigation {
+.navigation{
     display: flex;
     list-style: none;
     gap: 2rem;
     padding-right: 20px;
 }
 
+.navigation li{position: relative;}
+
 .navigation a {
     text-decoration: none;
     text-transform: uppercase;
     color: var(--secondary-color);
 }
+
+.dropdown-menu
+{position: absolute;
+top: 100%;
+background-color: var(--focus-outline-color);
+list-style: none;
+    padding: 10px 30px 10px 10px;
+display: none;}
+
+.dropdown-menu a{
+    text-transform: none;
+    font-size: 17px;
+    font: var(--font-primary);
+    color: var(--primary-color);
+}
+
+
+/* Hover-Effekt im Dropdown*/
+.dropdown-menu a:hover {
+    color: var(--accent-color);
+}
+
+/* Markierung Current */
+.navigation .current {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.dropdown-icon, .dropdown-toggle{display: none;}
+
+.dropdown-label .icon-Icon {
+    display: none;
+}
+.dropdown-label{text-transform: uppercase;
+    color: var(--secondary-color);}
+
 
 /*Template Layout*/
 
@@ -199,6 +240,7 @@ nav.container {
     position: relative;
     display: flex; /* Flexbox aktivieren */
     align-items: center; /* vertikal zentrieren */
+    aspect-ratio: unset;
 }
 
 .hero .above-level {
@@ -249,10 +291,11 @@ nav.container {
 .big-title-section {
     background-color: var(--accent-color);
     width: 100%;
-    height: 136px;
+    max-height: 136px;
     position: relative;
     overflow: hidden;
     margin-top: 50px;
+    padding-top: 50px;
     margin-bottom: 127px;
 }
 
@@ -292,7 +335,7 @@ nav.container {
 
 /*Headlines*/
 
-.fonts{
+#fonts{
     max-width: var(--container-max-width);
     width: 100%;
     margin: 0 auto;
@@ -304,12 +347,16 @@ nav.container {
 .bold{font-weight: bold;}
 
 
-.accent-button {
+.accent-button{
     background-color: var(--accent-color);
     color: var(--secondary-color);
     font-size: 17px;
     border: none;
     display: inline-block;
+    font-family: var(--font-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 28px;
     margin-top: 50px;
 }
 
@@ -318,7 +365,7 @@ nav.container {
 .section-margin{padding-top: 125px;
     padding-bottom: 106px;}
 
-.gallery-section{
+#gallery-section{
     max-width: var(--container-max-width);
     width: 100%;
     margin: 0 auto;
@@ -397,36 +444,36 @@ max-width: var(--container-max-width);
 
 /*Kundenstimme*/
 
-.feedback{
+#feedback{
     max-width: 654px;
 width: 100%;
 margin: 0 auto;
     text-align: center;
 }
 
-.feedback-headline{text-transform: uppercase;
+#feedback-headline{text-transform: uppercase;
     margin-bottom: 40px;
     font-size: var(--font-size-h3);
     font-family: var(--font-primary);
     color: #2F2F2A;}
 
-.feedback-quote{margin:0 30px 15px 30px;
+#feedback-quote{margin:0 30px 15px 30px;
 }
 
-.feedback-name{font-weight: bold;}
+#feedback-name{font-weight: bold;}
 
 
 
 /*Footer*/
 
-.footer-background{background-color:
-        var(--primary-color);padding: 80px;}
+#footer-background{background-color:
+        var(--primary-color); padding: 80px 0;}
 
-.footer-section{max-width: var(--container-max-width);
+#footer-section{max-width: var(--container-max-width);
     width: 100%;
     margin: 0 auto;
     padding: 0 20px;
-display: grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;}
 
 .footer-logo img{
@@ -462,10 +509,11 @@ padding-right: 40px}
 }
 
 
+
 /*Footer-Responsiv*/
 
 @media (max-width: 768px) {
-    .footer-section {
+    #footer-section {
         grid-template-columns: 1fr;
         text-align: center;
     }
@@ -503,14 +551,16 @@ padding-right: 40px}
     .image-overlay {
         aspect-ratio: 1 / 1;
     overflow: hidden;}
+
 }
+
+
 @media (max-width: 768px) {
     .gallery-grid {
         grid-template-columns: 1fr;
         gap: 10px;
     }
 }
-
     /* Positionierung der Text-Box */
     .image-text {
         position: absolute;
@@ -528,6 +578,13 @@ padding-right: 40px}
     .image-text {
         display: none;
     }
+    .dropdown:hover .dropdown-menu,
+    .dropdown-menu:hover {
+        display: block;
+    }
+
+
+
 }
 
 /*Mobile Navigation/Burgerbutton*/
@@ -561,7 +618,8 @@ padding-right: 40px}
 .menu-close {
     display: none; /* Standardmäßig ausgeblendet */
     position: absolute;
-    top: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     right: 20px;
     font-size: 1.5rem;
     color: var(--secondary-color);
@@ -578,35 +636,107 @@ padding-right: 40px}
     display: block; /* X-Button anzeigen */
 }
 
-@media (max-width: 768px) {
-    .navigation {
-        flex-direction: column;
-        gap: 1rem;
-        position: fixed; /* Überlagert gesamten Viewport */
-        top: 90px; /* Unter dem fixierten Header */
-        left: 0;
-        padding-left: 20px;
-        width: 100%;
-        height: calc(100% - 60px); /* Rest des Bildschirms */
-        background: var(--accent-color);
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        z-index: 1000;
-    }
 
-    .menu-toggle-checkbox:checked ~ .navigation {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-}
 
 /* Burger-Button und X ausblenden in der Desktop-Ansicht */
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     .menu-toggle,
     .menu-close {
         display: none; /* Beide Buttons ausblenden */
     }
 }
+/*neu*/
+@media (max-width: 768px) {
+    /* Der Wrapper: füllt 100% Breite, ist schwarz und fixiert */
+    .mobile-menu-wrapper {
+        display: none; /* Standard: unsichtbar */
+        position: fixed;
+        top: 90px;         /* knapp unter dem Header */
+        left: 0;
+        margin-top: 2px;
+        width: 100%;
+        height: calc(100% - 90px);
+        background: var(--primary-color);
+        z-index: 1000;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Bei aktivierter Checkbox einblenden */
+    .menu-toggle-checkbox:checked ~ .mobile-menu-wrapper {
+        display: block;
+        transform: translateY(0);
+    }
+
+    /* Das eigentliche UL-Menü in Blau (nur 90% davon) */
+    .navigation {
+        width: 90%;
+        height: 100%;
+        background: var(--accent-color);
+        margin: 0 0 0;
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0;
+    }
+
+    /* Navigation-Elemente stylen */
+    .navigation li {
+        list-style: none;
+        border-bottom: 1px solid var(--focus-outline-color);
+        padding: 15px 0;
+    }
+    .navigation a {
+        display: block;
+        padding-left: 20px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: var(--secondary-color);
+    }
+}
+    /*neu*/
+
+@media (max-width: 768px) {
+    .dropdown-label {
+        display: flex;                 /* Text links, Icon rechts */
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;                   /* Füllt das <li> komplett aus */
+        padding: 0 20px;           /* Klickfläche definieren */
+        cursor: pointer;
+    }
+
+    .dropdown-label .icon-Icon {
+        color: var(--base-bg-color);   /* z.B. Weiß */
+        transform: rotate(90deg);      /* Drehung wenn gewünscht */
+        display: inline-flex;
+    }
+
+    /* Per Checkbox-Klick öffnen */
+    .dropdown-toggle:checked ~ .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu
+    {position: absolute;
+        top: 100%;
+        background-color: var(--focus-outline-color);
+        list-style: none;
+        padding: 10px 30px 10px 10px;
+        display: none;}
+
+    .dropdown-menu a{
+        text-transform: none;
+        font-size: 17px;
+        font: var(--font-primary);
+        color: var(--primary-color);
+    }
+
+
+
+
+}
+
+
+
