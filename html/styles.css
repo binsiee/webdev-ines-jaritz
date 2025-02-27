@@ -88,6 +88,13 @@ body {
 
 main{margin-top: 90px}
 
+.main-container {
+    max-width: var(--container-max-width); /* 1350px */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -107,41 +114,37 @@ button {
     border: 1px solid;
 }
 
-h1{font-size: var(--font-size-h1-fluid);
-    font-family: var(--font-primary);
-    color: var(--primary-color);
-    text-transform: uppercase}
-
-h2{font-size: var(--font-size-h2-fluid);
+h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     color: var(--primary-color);
     text-transform: uppercase;
 }
 
-h3{font-size: var(--font-size-h3);
-    font-family: var(--font-primary);
-    color: var(--primary-color);
-text-transform: uppercase;
+h1 {
+    font-size: var(--font-size-h1-fluid);
+}
+
+h2 {
+    font-size: var(--font-size-h2-fluid);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
     font-weight: var(--font-weight-regular);
 }
 
-h4{font-size: var(--font-size-h4);
-    font-family: var(--font-primary);
-    color: var(--primary-color);
-    text-transform: uppercase;
-    font-weight: var(--font-weight-regular);}
-
-h5{font-size: var(--font-size-h5);
-    font-family: var(--font-primary);
-    color: var(--primary-color);
-    text-transform: uppercase;
+h4 {
+    font-size: var(--font-size-h4);
     font-weight: var(--font-weight-regular);
 }
 
-h6{font-size: var(--font-size-h6);
-    font-family: var(--font-primary);
-    color: var(--primary-color);
-    text-transform: uppercase;
+h5 {
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-regular);
+}
+
+h6 {
+    font-size: var(--font-size-h6);
     font-weight: var(--font-weight-regular);
 }
 
@@ -184,20 +187,7 @@ display: block;}
     object-fit: cover;
 }
 
-/* 3) Text – auf Mobile immer sichtbar (opacity: 1),
-      muss aber über allen Overlays liegen -> z-index: 3 */
-.image-text {
-    position: absolute;
-    bottom: 17px;
-    left: 17px;
-    color: #fff;
-    font-family: var(--font-primary);
-    font-size: 30px;
-    text-transform: uppercase;
-    z-index: 3; /* höher als both Overlays */
-    opacity: 1; /* auf Mobile / Tablet sofort sichtbar */
-    transition: opacity 0.3s ease;
-}
+
 
 #special-font-subheader{font-family: var(--font-primary);
 color: var(--font-secondary);
@@ -290,11 +280,6 @@ display: none;}
 }
 
 .hero .above-level {
-    max-width: var(--container-max-width);
-    width: 100%; /* Container nimmt die volle verfügbare Breite ein */
-    margin: 0 auto; /* Zentriert Container horizontal */
-    padding-left: 20px;
-    padding-right: 20px;
     z-index: 2;
 }
 
@@ -346,10 +331,6 @@ display: none;}
 }
 
 .big-title-inner-section{
-    max-width: var(--container-max-width);
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
     height: 100%;
     position: relative;
     display: flex;
@@ -381,13 +362,6 @@ display: none;}
 
 /*Headlines*/
 
-#fonts{
-    max-width: var(--container-max-width);
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 .headlines>*{margin-bottom: 40px;}
 
 .bold{font-weight: bold;}
@@ -411,12 +385,6 @@ display: none;}
 .section-margin{padding-top: 125px;
     padding-bottom: 106px;}
 
-#gallery-section{
-    max-width: var(--container-max-width);
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
 /* Basis-Styles für mobile Geräte */
 .gallery-grid {
@@ -509,8 +477,6 @@ max-width: var(--container-max-width);
 
 #feedback{
     max-width: 654px;
-width: 100%;
-margin: 0 auto;
     text-align: center;
 }
 
@@ -532,10 +498,7 @@ margin: 0 auto;
 #footer-background{background-color:
         var(--primary-color); padding: 80px 0;}
 
-#footer-section{max-width: var(--container-max-width);
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
+#footer-section{
     display: grid;
     grid-template-columns: 1fr 1fr;}
 
@@ -615,24 +578,19 @@ padding-right: 40px}
 }
 
 
-@media (max-width: 767px) {
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
+.image-text {
+    position: absolute;
+    bottom: 17px;
+    left: 17px;
+    color: var(--base-bg-color);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-30);
+    text-transform: uppercase;
+    z-index: 3; /* höher als both Overlays */
+    opacity: 1; /* auf Mobile / Tablet sofort sichtbar */
+    transition: opacity 0.3s ease;
+    font-weight: var(--font-weight-bold);
 }
-    /* Positionierung der Text-Box */
-    .image-text {
-        position: absolute;
-        bottom: 17px;
-        left: 17px;
-        z-index: 2;
-        color: var(--base-bg-color);
-        font-family: var(--font-primary);
-        font-weight: bold;
-        font-size: var(--font-size-30);
-        text-transform: uppercase; /* Großbuchstaben */
-    }
 
 @media (min-width: 1024px) {
     .gallery-grid .image-text {
@@ -788,7 +746,6 @@ padding-right: 40px}
 
     .dropdown-menu a{
         text-transform: none;
-        font-size: var(--font-size-17);
         font: var(--font-primary);
         color: var(--primary-color);
     }
@@ -799,6 +756,5 @@ padding-right: 40px}
         display: block;
     }
 }
-
 
 
