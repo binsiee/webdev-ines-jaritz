@@ -1,3 +1,16 @@
+@charset "UTF-8";
+/*!
+Theme Name: webdev-ines-jaritz
+Description: Interior Design Website im Lehrgang Wifi Webdevelopment
+Tags: Portfolio, Gutenberg,
+Author: Ines Jaritz
+Text Domain: interior-design-translation
+Version: 0.1
+Tested up to: 6.7.1
+Requires at least: 6.0
+Requires PHP: 8.1
+*/
+
 /* Grundlegendes Styling alle Seiten*/
 
 *, *::before, *::after {
